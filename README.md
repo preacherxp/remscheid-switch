@@ -2,7 +2,7 @@
 
 Contemporary Remscheid in a pixel-art day/night switch. Vaillant headquarters and Holiday Inn Express on Lenneper Straße 164.
 
-[Live demo](https://preacherxp.github.io/remscheid-switch/)
+[Live demo](https://preacherxp.github.io/remscheid-switch/) · [60 fps MP4](remscheid-day-night-60fps.mp4)
 
 The landmarks form a compressed panorama, rather than a literal street view.
 No build step or runtime dependencies. Drag through the hours, tap or press
@@ -43,3 +43,5 @@ GitHub Pages serves `/` from `main`.
 The engine is derived from `tokyo-switch.js`; the original idea is “住人のいるスイッチ”
 by @Lattice_Node ([original project](https://ludion.ai/p/toggle-daylight), MIT),
 as credited in the engine source.
+
+The MP4 is a seven-second recording of the complete browser-rendered switch at 800 × 500 and 60 fps, including the moving glass lens.
