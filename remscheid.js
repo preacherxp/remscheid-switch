@@ -141,6 +141,17 @@
       }
     }
   };
+  const HARE = [
+    '....#.#.',
+    '....#.#.',
+    '....###.',
+    '...#####',
+    '..####..',
+    '.#####..',
+    '######..',
+    '######..',
+    '.##..##.',
+  ];
   const drawVaillant = (w) => {
     // White horizontal bands and the glazed campus wings of the Remscheid HQ.
     for(const [x,top,width] of [[26,63,62],[88,74,80],[21,96,151]]){
@@ -155,10 +166,11 @@
       }
       w.rect(x,top,width,2,M.TRIM);
     }
-    w.hsign(81,78,78,11,'VAILLANT',{n:N.BRAND,g:w.venueG,board:M.WHITE_PANEL,off:M.BRAND_GREEN});
-    // A tiny hare emblem suggests the company mark without competing with its name.
-    w.rect(70,81,1,5,M.BRAND_GREEN);w.rect(73,80,1,6,M.BRAND_GREEN);
-    w.rect(69,85,7,4,M.BRAND_GREEN);w.px(75,86,M.TRIM);
+    // The name and a small sitting hare share one white fascia across the top band of the middle wing.
+    w.rect(91,77,74,11,M.WHITE_PANEL);
+    w.hsign(110,77,50,11,'VAILLANT',{font:5,n:N.BRAND,g:w.venueG,board:M.WHITE_PANEL,off:M.BRAND_GREEN});
+    w.sprite(HARE,{'#':M.BRAND_GREEN},99,78);
+    HARE.forEach((row,j)=>[...row].forEach((c,i)=>{if(c==='#')w.light(99+i,78+j,N.BRAND,w.venueG);}));
     w.rect(88,98,54,2,M.FRAME);w.rect(90,100,50,13,M.WINDOW);
     w.lightRect(91,101,48,11,N.WARM,w.venueG);
     for(const x of [99,111,123,135])w.rect(x,100,1,13,M.FRAME);
@@ -175,9 +187,10 @@
       if((dx+y)%4<3)w.lightRect(x+dx+1,y+1,4,height-2,N.WARM,w.winGroups[(dx+y)%28]);
     }
     // The real hotel is Holiday Inn Express on Lenneper Straße 164.
-    w.hsign(227,66,72,7,'HOLIDAY INN',{n:N.BRAND,g:w.venueG,board:M.HOTEL_PANEL,off:M.BRAND_GREEN});
-    w.hsign(262,73,37,6,'EXPRESS',{n:N.BLUE_SIGN,g:w.venueG,board:M.HOTEL_PANEL,off:M.HOTEL_BLUE});
-    w.rect(306,68,12,9,M.BRAND_GREEN);w.glyph('H',310,70,(x,y)=>w.tube(x,y,M.TRIM,N.LED_SOFT,w.venueG));
+    // The H badge leads the name so the right curve of the window never cuts it.
+    w.rect(227,67,12,9,M.BRAND_GREEN);w.glyph('H',231,69,(x,y)=>w.tube(x,y,M.TRIM,N.LED_SOFT,w.venueG));
+    w.hsign(242,66,51,7,'HOLIDAY INN',{n:N.BRAND,g:w.venueG,board:M.HOTEL_PANEL,off:M.BRAND_GREEN});
+    w.hsign(263,73,30,6,'EXPRESS',{n:N.BLUE_SIGN,g:w.venueG,board:M.HOTEL_PANEL,off:M.HOTEL_BLUE});
     w.rect(267,105,42,2,M.FRAME);w.rect(270,107,36,11,M.WINDOW);
     w.lightRect(271,108,34,9,N.WARM,w.venueG);w.rect(288,107,1,11,M.FRAME);
     for(const x of [262,313]){w.rect(x,114,6,5,M.PLANTER);w.rect(x-1,111,8,4,M.LEAF);}
@@ -192,8 +205,8 @@
     w.depth=2;drawSquare(w);drawVaillant(w);drawHotel(w);
     w.rect(-40,134,400,16,M.ROAD);w.rect(-40,133,400,1,M.CURB);
     for(let x=-32;x<360;x+=18)w.rect(x,142,9,1,M.LINE);
-    for(const x of [10,185,350]){w.rect(x,96,1,30,M.FRAME);w.rect(x-4,95,8,1,M.FRAME);w.lightRect(x-3,96,6,1,N.LED_SOFT,w.venueG);}
-    for(const x of [12,177,207,350]){w.rect(x,108,1,16,M.TIMBER_D);tree(w,x,104,7,10,rng(x+80));w.rect(x-5,122,11,3,M.PLANTER);}
+    for(const x of [10,212,350]){w.rect(x,96,1,30,M.FRAME);w.rect(x-4,95,8,1,M.FRAME);w.lightRect(x-3,96,6,1,N.LED_SOFT,w.venueG);}
+    for(const x of [12,177,203,350]){w.rect(x,108,1,16,M.TIMBER_D);tree(w,x,104,7,10,rng(x+80));w.rect(x-5,122,11,3,M.PLANTER);}
     w.rect(60,107,1,15,M.FRAME);w.rect(72,107,1,15,M.FRAME);
     w.strata=[{x:-30,y:10,w:80,v:.55},{x:200,y:23,w:64,v:.4}];
     w.cat.x=194;w.cat.y=129;
