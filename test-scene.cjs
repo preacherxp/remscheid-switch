@@ -36,11 +36,20 @@ for (const hour of [12, 17, 18.5, 22, 26, 29, 31, 36]) {
   }
 }
 world.startle();
+const movingBus = world.bus.x;
+const movingDeck = world.decks[0].x;
 world.tick(1 / 30, 18);
 assert.ok(world.cat.puff > 0, 'the cat still reacts to a quick drag');
+assert.notEqual(world.bus.x, movingBus, 'the bus advances with dt');
+assert.notEqual(world.decks[0].x, movingDeck, 'the cloud decks advance with dt');
 const frozenTime = world.t;
+const frozenBus = world.bus.x;
+const frozenDeck = world.decks[0].x;
 world.tick(1 / 30, 22, { calm: true });
 assert.equal(world.t, frozenTime, 'reduced motion stops the scene animation');
+assert.equal(world.bus.x, frozenBus, 'reduced motion parks the bus');
+assert.equal(world.decks[0].x, frozenDeck, 'reduced motion stills the clouds');
+assert.ok(Number.isInteger(world.lanes[1]) && world.cars.every((car) => car.dir === -1 && car.lane === 0), 'cars keep the far lane; the near lane is the bus lane');
 assert.equal(world.levels[world.venueG], 1);
 
 // Optional raw frames let the same check produce a visual preview without browser dependencies.
