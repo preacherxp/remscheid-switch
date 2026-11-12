@@ -2,7 +2,7 @@
 
 Contemporary Remscheid in a pixel-art day/night switch. Vaillant headquarters and Holiday Inn Express on Lenneper Straße 164, under the Rathaus tower on the wooded ridge, with a Stadtwerke Remscheid e-bus passing.
 
-[Live demo](https://preacherxp.github.io/remscheid-switch/) · [60 fps MP4](remscheid-day-night-60fps.mp4)
+[Live demo](https://preacherxp.github.io/remscheid-switch/) · [60 fps MP4](remscheid-day-night-60fps.mp4) · [Instagram 4:5 MP4](remscheid-instagram-4x5-60fps.mp4) · [Instagram cover](remscheid-instagram-cover.jpg)
 
 The landmarks form a compressed panorama, rather than a literal street view.
 No build step or runtime dependencies. Drag through the hours, tap or press
@@ -51,4 +51,4 @@ The engine is derived from `tokyo-switch.js`; the original idea is “住人の�
 by @Lattice_Node ([original project](https://ludion.ai/p/toggle-daylight), MIT),
 as credited in the engine source.
 
-The MP4 is a seven-second recording of the complete browser-rendered switch at 1600 × 1000 and 60 fps, including the moving glass lens.
+The MP4 is a seven-second recording of the complete browser-rendered switch at 1600 × 1000 and 60 fps, including the moving glass lens. The Instagram MP4 is the same loop at 1080 × 1350 (4:5), and its cover is a still from the night hold; both keep the whole switch inside the 3:4 profile-grid crop.
